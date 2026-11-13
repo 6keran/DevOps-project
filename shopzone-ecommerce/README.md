@@ -1,4 +1,4 @@
-# ShopZone E-commerce Prototype
+git commit -m "Initial commit: ShopZone e-commerce website"# ShopZone E-commerce Prototype
 
 A responsive frontend-only shopping website made with HTML, CSS and vanilla JavaScript.
 
