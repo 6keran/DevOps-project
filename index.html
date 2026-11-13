@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopZone - a simple online shopping prototype">
+  <title>ShopZone | Online Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">Free delivery on orders over ₹1,499</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="ShopZone home">shop<span>zone</span></a>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+      <button aria-label="Search">⌕</button>
+    </form>
+    <nav class="header-actions">
+      <a class="text-action signin-link" href="login.html">Sign in</a>
+      <button class="text-action" id="wishlistNav" aria-label="Open wishlist">♡ <span>Wishlist</span> <b id="wishlistCount">0</b></button>
+      <button class="text-action" id="cartNav" aria-label="Open cart">▣ <span>Cart</span> <b id="cartCount">0</b></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY EDIT</p>
+        <h1>Good finds.<br>Better prices.</h1>
+        <p>Discover useful essentials and thoughtful upgrades for everyday life.</p>
+        <button class="primary-btn" id="shopNow">Shop collection <span>→</span></button>
+      </div>
+      <div class="hero-art" aria-label="Shopping collection illustration">
+        <div class="art-circle"></div>
+        <div class="art-card art-card-one"><span>NEW</span><div class="art-product">◒</div><small>Everyday essentials</small></div>
+        <div class="art-card art-card-two"><div class="art-product">◈</div><small>Made for you</small></div>
+        <div class="art-spark">✳</div>
+      </div>
+    </section>
+
+    <section class="trust-row">
+      <div><strong>✓</strong><span>Quality picks</span></div>
+      <div><strong>↗</strong><span>Easy returns</span></div>
+      <div><strong>⌁</strong><span>Secure checkout demo</span></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">CURATED FOR YOU</p><h2>Shop products</h2></div>
+        <span id="resultCount" class="result-count"></span>
+      </div>
+      <div class="shop-toolbar">
+        <div class="categories" id="categories">
+          <button class="category active" data-category="All">All products</button>
+          <button class="category" data-category="Electronics">Electronics</button>
+          <button class="category" data-category="Fashion">Fashion</button>
+          <button class="category" data-category="Home">Home</button>
+          <button class="category" data-category="Accessories">Accessories</button>
+        </div>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+          <option value="rating">Top rated</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState">No products found. Try another search or category.</div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#">shop<span>zone</span></a><p>A simple e-commerce prototype built with HTML, CSS and JavaScript.</p><small>© 2026 ShopZone. Demo store; no real payments are processed.</small></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart <span id="drawerCartCount">(0)</span></h2></div><button class="icon-btn close-drawer" aria-label="Close cart">×</button></div>
+    <div class="drawer-content" id="cartItems"></div>
+    <div class="drawer-bottom" id="cartBottom">
+      <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <p class="shipping-note">Shipping and taxes are calculated at checkout.</p>
+      <button class="primary-btn full-width" id="checkoutBtn">Continue to checkout <span>→</span></button>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlistDrawer" aria-label="Wishlist" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">SAVED ITEMS</p><h2>Your wishlist</h2></div><button class="icon-btn close-drawer" aria-label="Close wishlist">×</button></div>
+    <div class="drawer-content" id="wishlistItems"></div>
+  </aside>
+
+  <section class="modal hidden" id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+    <button class="icon-btn modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="productDetails"></div>
+  </section>
+
+  <section class="checkout-page hidden" id="checkoutPage">
+    <div class="checkout-top"><a class="brand" href="#">shop<span>zone</span></a><button class="back-link" id="backToStore">← Back to store</button></div>
+    <div class="checkout-layout">
+      <div>
+        <p class="eyebrow">ALMOST YOURS</p><h1>Checkout</h1>
+        <form id="checkoutForm" class="checkout-form">
+          <h3>Contact information</h3>
+          <label>Full name<input name="name" required placeholder="Your name"></label>
+          <label>Email address<input name="email" type="email" required placeholder="you@example.com"></label>
+          <h3>Delivery address</h3>
+          <label>Address<input name="address" required placeholder="House number, street"></label>
+          <div class="form-two">
+            <label>City<input name="city" required placeholder="City"></label>
+            <label>PIN code<input name="pin" inputmode="numeric" pattern="[0-9]{6}" required placeholder="6-digit PIN"></label>
+          </div>
+          <h3>Payment method</h3>
+          <label class="payment-option"><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on delivery (demo)</label>
+          <label class="payment-option"><input type="radio" name="payment" value="UPI (demo)"> UPI (demo only)</label>
+          <p class="demo-note">This prototype does not collect payment details or process real payments.</p>
+          <button class="primary-btn full-width" type="submit">Place demo order <span>→</span></button>
+        </form>
+      </div>
+      <div class="order-summary"><h3>Order summary</h3><div id="checkoutItems"></div><div class="subtotal"><span>Total</span><strong id="checkoutTotal">₹0</strong></div></div>
+    </div>
+  </section>
+
+  <section class="success-modal hidden" id="successModal" role="dialog" aria-modal="true">
+    <div class="success-mark">✓</div><p class="eyebrow">ORDER PLACED</p><h2>Thank you for your order.</h2><p id="orderMessage">Your demo order has been created.</p><button class="primary-btn" id="continueShopping">Continue shopping</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create your ShopZone demo account.">
+  <title>Sign in | ShopZone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-body">
+  <header class="login-header">
+    <a class="brand" href="index.html">shop<span>zone</span></a>
+    <a class="back-link" href="index.html">← Back to store</a>
+  </header>
+  <main class="login-shell">
+    <section class="login-intro">
+      <p class="eyebrow">WELCOME TO SHOPZONE</p>
+      <h1>Shopping made<br>simple.</h1>
+      <p>Sign in to keep your shopping details together and get back to the things you love.</p>
+      <div class="login-benefits">
+        <div><span>01</span><p>Keep your cart and wishlist close</p></div>
+        <div><span>02</span><p>Enjoy a simpler checkout experience</p></div>
+        <div><span>03</span><p>Manage your demo account in one place</p></div>
+      </div>
+    </section>
+    <section class="login-card" aria-labelledby="formTitle">
+      <div class="login-tabs" role="tablist" aria-label="Account access">
+        <button class="login-tab active" id="signinTab" type="button" role="tab" aria-selected="true">Sign in</button>
+        <button class="login-tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
+      </div>
+      <div class="login-card-heading">
+        <p class="eyebrow" id="formEyebrow">YOUR ACCOUNT</p>
+        <h2 id="formTitle">Welcome back</h2>
+        <p id="formDescription">Enter your details to continue.</p>
+      </div>
+      <form id="authForm" novalidate>
+        <label id="nameField" class="form-field hidden">Full name
+          <input id="fullName" name="name" type="text" autocomplete="name" placeholder="Enter your name">
+          <small class="field-error" id="nameError"></small>
+        </label>
+        <label class="form-field">Email address
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <small class="field-error" id="emailError"></small>
+        </label>
+        <label class="form-field">Password
+          <span class="password-wrap">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <button type="button" class="show-password" id="togglePassword" aria-label="Show password">Show</button>
+          </span>
+          <small class="field-error" id="passwordError"></small>
+        </label>
+        <div class="login-options" id="signinOptions">
+          <label class="remember-option"><input type="checkbox" id="remember"> Remember me</label>
+          <a href="#" id="forgotPassword">Forgot password?</a>
+        </div>
+        <button class="primary-btn login-submit" type="submit" id="submitButton">Sign in <span>→</span></button>
+        <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+      </form>
+      <p class="login-legal">By continuing, you agree to ShopZone's demo <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+      <p class="demo-disclaimer">Prototype only: this page demonstrates the interface. It does not create secure accounts or authenticate users on a server.</p>
+    </section>
+  </main>
+  <footer class="login-footer"><small>© 2026 ShopZone. Demo store.</small></footer>
+  <script src="login.js"></script>
+</body>
+</html>
