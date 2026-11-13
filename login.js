@@ -33,6 +33,17 @@ $("forgotPassword").addEventListener("click", event => {
   event.preventDefault();
   $("formFeedback").textContent = "Password recovery is not connected in this prototype.";
 });
+// Real-time input validation: clear error messages on input
+["fullName", "email", "password"].forEach(fieldId => {
+  const inputEl = $(fieldId);
+  if (inputEl) {
+    inputEl.addEventListener("input", () => {
+      const errId = fieldId === "fullName" ? "nameError" : fieldId + "Error";
+      const errEl = $(errId);
+      if (errEl) errEl.textContent = "";
+    });
+  }
+});
 $("authForm").addEventListener("submit", event => {
   event.preventDefault();
   clearErrors();
